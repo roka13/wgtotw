@@ -1,0 +1,50 @@
+/**
+ * Style for forms
+ */
+label {
+  font-size: smaller;
+}
+
+input[type=text],
+input[type=password] {
+  font-size: 1.2em;
+  width: 300px;
+}
+
+input[type=submit],
+input[type=reset] {
+  font-size: 1.2em;
+}
+
+textarea {
+  font-size: 1.2em;
+  width: 300px;
+  min-height: 200px;
+}
+
+p.buttons {
+  padding-top: 22px;
+  padding-bottom: 22px;
+} 
+
+.forms{
+width: 700px;
+  background-color: #eee;
+}
+
+.cform-columns-2 .cform-column-1,
+.cform-columns-2 .cform-column-2 { 
+ background-color:  #eee; 
+  float: left; width: 50%; 
+}
+ 
+.cform-columns-2 .cform-buttonbar { 
+  clear: both; 
+  background-color:  #eee; 
+  padding: 1em; 
+  border: 1px solid #aaa; 
+}
+ 
+.cform-columns-2 .cform-buttonbar p { 
+  margin-bottom: 0; 
+}

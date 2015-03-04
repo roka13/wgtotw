@@ -1,0 +1,165 @@
+/**
+ * General elements
+ */
+
+@import url(figure.css);
+
+body {
+ color: #333;
+   background-color: #C3F7EF;
+  font-family: arial, sans-serif;
+  overflow-y: scroll;
+}
+
+h1 {
+  font-size: 2.2em;
+}
+
+span {padding: 2em}
+/**
+ * Layout of the main page elements 
+ */
+#wrapper {
+  margin: 0 auto;
+  width: 960px; 
+  padding: 10px;
+
+}
+
+
+/**
+ * Layout for header
+ */
+#header {
+  position: relative;
+  margin-bottom: 10px;
+}
+
+.sitetitle {
+  position: absolute;
+  top: 6px;
+  left: 130px;
+  font-size: 36px;
+}
+
+.siteLogin {
+  position: absolute;
+  top: 25px;
+  right: 0px;
+  font-size: 12px;
+}
+
+.siteslogan {
+  position: absolute;
+  top: 65px;
+  left: 130px;
+  font-style: italic;
+  color: #666;
+}
+
+
+/**
+ * Layout for main
+ */
+#main {
+  min-height: 20em;
+}
+
+
+/**
+ * Layout for footer
+ */
+#footer {
+  margin-top: 40px;
+  border-top: 1px solid #ccc;
+  padding-top: 22px;
+}
+
+.sitefooter {
+  color: #666;
+}
+
+
+
+/**
+ * For articles
+ */
+.article1 {
+  width: 960px;
+  border-right: 1px solid #ccc;
+  padding-right: 1em;
+}
+
+.article1 h1,
+.article1 h2 {
+  border-bottom: 1px solid #ccc;
+}
+
+.byline {
+  margin-top: 44px;
+  border-top: 1px dashed #ccc;
+  padding-top: 22px;
+  color: #666;
+}
+
+.byline p {
+  margin-top: 0;
+}
+
+.right {
+	float: right;
+}
+	
+.left { 
+	float: left;
+}	
+
+.ram {
+height:4em;
+margin: 2px auto;
+border:3px solid grey;
+padding:2px;
+background-color: #EEE;
+overflow:hidden;
+}
+
+.qram {
+min-height:4em;
+margin: 2px auto;
+border:3px solid grey;
+padding:2px;
+background-color: #EEE;
+overflow: auto;
+}
+
+.smallram {
+min-height:1em;
+width:24%;
+margin:0.1em auto;
+border:2px solid grey;
+padding:0.1em;
+float: left;
+background-color: #EEEEEE;
+}
+
+.width3  tr td {
+	width: 30%;
+	}
+
+.width3  tr {
+width: 90 %;
+}
+
+.hoverButton :hover{
+
+ background-color: #666; 
+
+}
+
+.width4{
+	width: 25%;
+	}
+	
+.red{
+		color: red;
+	}
