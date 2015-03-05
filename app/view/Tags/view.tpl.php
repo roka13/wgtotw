@@ -21,27 +21,29 @@
 ?>
 
 <?=$button1?><?=$button5?><?=$button7?>
-
-<div class ='ram'>
+<br>
+<div class ='qram'>
 	<b> Tagg nr:  <?= $properties['id'] ?>
 		<?= $properties['tagName'] ?></b>
 	   <p><?=$properties['tagDescription'] ?></p>
 </div>
 
- <div>
+ 
 	<b> Frågor med denna tagg :</b>
-
+<article class='article1'>
 	<?php foreach ($questions as $question) {
 		$url = $this->url->create('Questions/id/' . $question ->id);
-		$quest= $this->textFilter->doFilter($question->questionTxt, 'shortcode, markdown');
+		$quest= strip_tags($this->textFilter->doFilter($question->questionTxt, 'shortcode, markdown'));
 	echo <<<EOD
-		<form class= 'hoverButton'  action="$url" method="get"><button>
-		<div class='ram'>
-		{$quest}
-		</div>
-		</button></form>
+	<div class='buttonram'>
+		<form class= 'hoverButton'  action="$url" method="get">
+			<button>
+				{$quest}
+			</button>
+		</form>
+	</div>
 EOD;
 } 
 ?>
 	   
-</div>
+</article>

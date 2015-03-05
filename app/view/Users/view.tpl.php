@@ -70,10 +70,8 @@ $avatar= md5(strtolower(trim($properties['email']))); ?>
 	    <tr><td>Blev medlem: </td><td><?= $properties['joined'] ?></td></tr>
 		<tr><td>Uppdaterades: </td><td><?= $properties['updated'] ?></td></tr>
 	    <tr><td>Status:</td><td><?=$properties['status'] ?></td><td>Betyg:</td><td><?=$properties['activity'] ?></td></tr>
-		  
-	   <tr><?=$button1?></tr>
 </table>
-
+	<?=$button1?>
 </div>
  <?php if($questions) : ?>
 <div>

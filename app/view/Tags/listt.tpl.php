@@ -10,16 +10,18 @@
 
 <?php foreach ($tags as $tag) {
 	$properties = $tag->getProperties();
-	$descript = $this->textFilter->doFilter($properties['tagDescription'], 'shortcode, markdown'); 
+	$descript = strip_tags($this->textFilter->doFilter($properties['tagDescription'], 'shortcode, markdown')); 
 	$url = $this->url->create('Tags/id/' . $properties['id']);
 	
 	echo <<<EOD
-		 <form class= 'hoverButton' style="display: inline" action="$url" method="get"><button class= 'width4' >
-		<p><b>{$properties['tagName']}</b></p>
-		<div class='ram'>
-		{$descript}
+	<div class='buttonram'>
+		 <form class= 'hoverButton' action="$url" method="get">
+		 <button>
+		<b>{$properties['tagName']}</b><br>
+			{$descript}
+		</button>
+		</form>
 		</div>
-		</button></form>
 EOD;
 }
 ?>

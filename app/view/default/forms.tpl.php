@@ -6,7 +6,9 @@
  <?=$link;?>
 <?php endif; ?>
 <?php if(isset($question)) : ?>
+<div class ='smallram'>
  <?=$question;?>
+ </div>
 <?php endif; ?>
 
 <?php if(isset($fail)) : ?>

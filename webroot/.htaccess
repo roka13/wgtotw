@@ -18,8 +18,8 @@ ErrorDocument 404 "This is a Anax 404. Document is not here."
 <IfModule mod_rewrite.c>
   RewriteEngine on
   # Must use RewriteBase on www.student.bth.se, Rewritebase for url /~mos/test is /~mos/test/
- #RewriteBase /~phpmvc/webroot/
-#RewriteBase /~roka13/phpmvc/webroot/ 
+ #RewriteBase /~Projektet/webroot/
+#RewriteBase /~roka13/Projektet/webroot/ 
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
  RewriteRule (.*) index.php/$1 [NC,L]

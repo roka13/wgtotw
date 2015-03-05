@@ -121,6 +121,7 @@ function readContent($sql){
 }
 
 public function emptyAction(){
+		$this->theme->setTitle("Ejklar");
 	$this->views->add('Dbtables/empty', [
 		'title' =>'Ledsen men sidan är inte klar ännu',
 		'content' =>'<p>Försök igen i framtiden</p>',
@@ -132,7 +133,7 @@ public function restoreAction(){
  	$this->dbt-> RestoreDb();
 	$this->views->add('Dbtables/empty', [
 		'title' =>'Databasen är återställd ',
-		'content' =>'<p>Endast en användare admin finns inlagd</p>',
+		'content' =>'<p>Endast två användare admin och default finns inlagd</p>',
     ]);
    
 }

@@ -143,18 +143,18 @@ else{
 		if(!$answerId){ 		
 		$sql="SELECT questionTxt  FROM Questions WHERE id = {$_SESSION['QuestionId']} ";
 		$res = $this->db->executeFetchAll($sql);
-		$question= "<div class ='smallram'><b>Frågan : </b>". $this->textFilter->doFilter( $res[0]->questionTxt, 'shortcode, markdown') ."</div>";
+		$question= "<h4>Frågan : </h4>". $this->textFilter->doFilter( $res[0]->questionTxt, 'shortcode, markdown');
 		}
 		else{
 			$sql="SELECT answerTxt  FROM Answers WHERE id = {$answerId} ";
 			$res = $this->db->executeFetchAll($sql);
-				$question= "<div class ='smallram'><b>Svaret : </b>". $this->textFilter->doFilter( $res[0]->answerTxt, 'shortcode, markdown') ."</div>";
+				$question= "<h4>Svaret : </h4>". $this->textFilter->doFilter( $res[0]->answerTxt, 'shortcode, markdown') ;
 		}
 	
 	   $url = $this->url->create('Questions/id/' . $_SESSION['QuestionId']);
 		$this->theme->setTitle("Kommentar");
-		$content = $form->getHTML(['columns'=> 2]);
-		$link="<form action='$url' method='get'><button>Åter till frågan</button></form>";
+		$content = $form->getHTML();
+		$link="<form action='$url' method='get'><button>Åter till frågan</button></form><br>";
 		$this->views->add('default/forms',[
 		'form' => $content,
 		'link' => $link,

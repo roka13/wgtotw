@@ -142,13 +142,33 @@ float: left;
 background-color: #EEEEEE;
 }
 
+.buttonram {
+height:4em;
+width:24%;
+margin:0.1em auto;
+border:3px solid grey;
+padding:0.1em;
+overflow:hidden;
+float: left;
+background-color:#D4D0C8;
+}
+.displayram {
+height:10em;
+width:980px;
+margin:1em auto;
+padding:0.1em;
+}
+
+
+
 .width3  tr td {
 	width: 30%;
 	}
 
 .width3  tr {
-width: 90 %;
+width: 90%;
 }
+
 
 .hoverButton :hover{
 

@@ -410,7 +410,7 @@ else{
         } 
 		
 		$content = $form->getHTML();
-		$this->views->add('Default/forms',[
+		$this->views->add('default/forms',[
 	    'form' => $content,
 		'title'=>'Logga in',
 		'fail' => ''
