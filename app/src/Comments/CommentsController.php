@@ -30,7 +30,6 @@ public function initialize()
      */
     public function viewAction()
     {
-	//$this->CommentsController->initialize();
         $all = $this->comments->findAll();
         $this->views->add('comments/comments', [
             'comments' => $all,

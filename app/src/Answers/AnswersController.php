@@ -123,9 +123,7 @@ else{
 		$res = $this->db->executeFetchAll($sql);
 		
 		$question= "<div class ='smallram'><b>Fråga : </b>". $this->textFilter->doFilter( $res[0]->questionTxt, 'shortcode, markdown') ."</div>";
-		//	$quests =$this->textFilter->doFilter( $res[0]->questionTxt, 'shortcode, markdown');
-		   $url = $this->url->create('Questions/id/' . $_SESSION['QuestionId']);
-		//$url = $this->url->create('Questionss/listt');
+		$url = $this->url->create('Questions/id/' . $_SESSION['QuestionId']);
 		$this->theme->setTitle("Svar på fråga");
 		$content = $form->getHTML(['columns'=> 2]);
 		$link="<form action='$url' method='get'><button>Åter till frågan</button></form>";
@@ -138,8 +136,6 @@ else{
  }
  }
 
-
-	
 } //end of controller
 
  

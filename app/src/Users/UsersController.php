@@ -78,8 +78,7 @@ public function idAction($id= null)
 
 		'nickname' => [
             'type'        => 'text',
-			'min'	  	  => 3,
-            'required'    => true,
+		    'required'    => true,
 			'label'       => 'Alias',
             'validation'  => ['not_empty'],
         ],
@@ -193,7 +192,7 @@ public function idAction($id= null)
 		$link="<form action='$url' method='get'><button>Lista Alla medlemmar</button></form>";
 		$content = $cont . $link;
 			
-		$this->views->add('Default/forms',[
+		$this->views->add('default/forms',[
 		'title' => "<h4>Fyll i formuläret och registrera dig !</h4><p> Du blir automatiskt inloggad när du är klar</p>",
 		'form' => $content,
 		'fail' => ''
@@ -339,7 +338,11 @@ public function activeAction()
  * @return void
  */
  public function loginAction() {
-	
+		
+	if(!isset($_SESSION['loginCount'])){
+	 $_SESSION['loginCount']=0;
+	}
+		
  if(isset($_SESSION['user'])){ 
 		$content = "Du är redan inloggad som {$_SESSION['user']}"; 
 		$this->views->add('error/fail',[
@@ -374,26 +377,26 @@ else{
 			}
 		],	
 		]);	
-
+		
 	    $status = $form->check(); 
-
+ 	$fail='';
         if ($status === true) { 
 		 $_SESSION['loginCount']=0;
 		header("Location: " . $this->url->create(''));
 	   }
 	   
 		else if($_SESSION['loginCount'] < 1){
-			$fail='';
+		 $fail = '';
 			$_SESSION['loginCount'] += 1;
 		}
 		else{ 
-		 $form->AddOutput("Fel Emailadress eller fel lösenord försök igen !", 'gw');
+		 $fail= "Fel Emailadress eller fel lösenord försök igen !";
 				$_SESSION['loginCount'] += 1;
 			if ($_SESSION['loginCount'] > 3){
 				 $_SESSION['loginCount']=0;
 										
 				$fail = "Du har misslyckats med inloggningen tre gånger"; 
-					 
+			 
 				$url = $this->url->create('Users/add');
 				$this->theme->setTitle("Ej Auktoriserad");
 				
@@ -408,12 +411,12 @@ else{
 			}
     
         } 
-		
+		$this->theme->setTitle("Login");
 		$content = $form->getHTML();
 		$this->views->add('default/forms',[
 	    'form' => $content,
 		'title'=>'Logga in',
-		'fail' => ''
+		'fail' => $fail
       ]); 
 		
 	}
@@ -422,6 +425,7 @@ else{
 public function logoutAction(){
 	unset($_SESSION['user']);
 	unset($_SESSION['id']);
+	 $_SESSION['loginCount']=0;
 	      header("Location: " . $this->url->create(''));
 }
 	

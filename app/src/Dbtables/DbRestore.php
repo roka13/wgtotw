@@ -276,7 +276,6 @@ public function PopulateUsers(){
                    
 
 	$now = date('Y-m-d');
-	
 	$this->db->execute([
 		'RGK',
         'karlssonrg@gmail.com',

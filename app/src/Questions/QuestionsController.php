@@ -20,7 +20,7 @@ public function initialize()
     $this->Questions = new \Anax\Questions\Questions();
     $this->Questions->setDI($this->di);
 	$this->Users = new \Anax\Users\Users();
-   $this->Users->setDI($this->di);
+	$this->Users->setDI($this->di);
 	$this->Query = new \Roka\Dbtables\WGTQuerys();
     $this->Query->setDI($this->di);
 }		
@@ -78,31 +78,32 @@ public function idAction($id= null)
 public function GetCommentsToAnswers($id,$answers){
 	$co=''; $an=''; $result='';
 
- foreach ($answers as $answ) {
+ foreach ($answers as $answ){
 	  $svar = $this->textFilter->doFilter($answ->answerTxt, 'shortcode, markdown');
       $url10=$this->url->create('Comments/add/'.$answ->Aid); // 27 28
 	  $commansw = $this->Query->GetComments2Answer($answ->Aid);
    	  $button10= "<form class= 'hoverButton'  action='$url10' method='get'><button>Kommentera</button></form>";
 	
-	$an = <<<EOD
-	<div class = 'qram'>
-	 <div class ='right'>{$button10}</div>
-	<b>Svar från :	{$answ->nickname}</b>
-		{$svar}
+		$an = <<<EOD
+			<div class = 'qram'>
+			<div class ='right'>{$button10}</div>
+			<b>Svar från :	{$answ->nickname}</b>
+			{$svar}
 EOD;
 
                 
- foreach ($commansw as $cans) {	 
-			   $comm = $this->textFilter->doFilter($cans->commentsTxt, 'shortcode, markdown');
-	$comment = <<<EOD
-	<div class = 'qram'>
-	<b>Kommentar till svar från :	{$cans->nickname}</b>
-    {$comm}
-	</div>
+	foreach ($commansw as $cans){	 
+		$comm = $this->textFilter->doFilter($cans->commentsTxt, 'shortcode, markdown');
+		$comment = <<<EOD
+			<div class = 'qram'>
+			<b>Kommentar till svar från :	{$cans->nickname}</b>
+			{$comm}
+			</div>
 EOD;
 
-	$co = $co . $comment;
-}
+		$co = $co . $comment;
+	}
+
 	$result = $result .$an .$co;
 	$co='';
 	$result=$result . "</div>" ;

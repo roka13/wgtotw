@@ -30,8 +30,6 @@ public function initialize()
  */
 public function listAction()
 { 
-//$this->TagsController->initialize();
- 
     $tags = $this->Tags->findAll();
 
     $this->theme->setTitle("List all tags");
@@ -165,7 +163,7 @@ else{
 		$cont = $form->getHTML();
 	$link="<form action='$url' method='get'><button>Lista Alla Taggar</button></form>";
 	$content = $cont . $link;
-		$this->views->add('Default/forms', [
+		$this->views->add('default/forms', [
 		'title' => "<h4>Fyll i tagnamn och beskrivning !",
 		'form' => $content,
 		'fail' => ''
@@ -238,7 +236,7 @@ else{
         } 
 
         $this->theme->setTitle("Redigera Taggar"); 
-        $this->views->add('Default/forms', [ 
+        $this->views->add('default/forms', [ 
             'title' => "Redigera Taggar", 
             'form' => $form->getHTML()
         ]); 

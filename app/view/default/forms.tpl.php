@@ -11,12 +11,14 @@
  </div>
 <?php endif; ?>
 
-<?php if(isset($fail)) : ?>
- <?=$fail;?>
-<?php endif; ?>
+
 <?php if(isset($form)) : ?>
 <div class= 'forms'>
 
   <?= $form;?>
   </div>
+<?php endif; ?>
+
+<?php if(isset($fail)) : ?>
+ <?=$fail;?>
 <?php endif; ?>

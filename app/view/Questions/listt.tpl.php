@@ -3,7 +3,7 @@
  $button5= "<form class= 'hoverButton'  action='$url5' method='get'><button>Ställ en fråga</button></form>"; 
 ?>
 
-
+<div>
 <?=$button5 ?>
 
 <h3><?=$title?></h3>
@@ -34,6 +34,8 @@
 		</div>
 EOD;
 }
+
 ?>
+</div>
 
 

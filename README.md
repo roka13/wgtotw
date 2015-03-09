@@ -3,15 +3,14 @@ WGTOTW
 A Web-site build on a clone from  Anax-base. This is the final project in PHPMVC on BTH 
 This clone is completed with Dbtables and new tests for Dbtables  
 
-A PHP-based and MVC-inspired (micro) framework / webbtemplate / boilerplate for websites and webbapplications.
+##Setup  
 
-Read article about it here: ["Anax som MVC-ramverk"](http://dbwebb.se/kunskap/anax-som-mvc-ramverk) and here ["Bygg en me-sida med Anax-MVC"](http://dbwebb.se/kunskap/bygg-en-me-sida-med-anax-mvc). 
-
-Builds upon Anax-base, read article about Anax-base ["Anax - en hållbar struktur för dina webbapplikationer"](http://dbwebb.se/kunskap/anax-en-hallbar-struktur-for-dina-webbapplikationer) to get an overview of its none-MVC variant. 
-
-By Mikael Roos, me@mikaelroos.se.
-
-
+Download or clone this content to your own server.
+Control that you have full access to the data-folder.
+This clone has two users from the beginning. They are setup in app/src/Dbtables/DBrestore.php    
+ To login use the email account and password of admin.   To alter this you have to edit the function PopulateUsers().
+Do not change the nickname RGK. It is used in many files to check if admin is logged in.
+In the database-menue you can reset all tables and also view their contents.
 
 License 
 ------------------

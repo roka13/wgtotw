@@ -14,10 +14,11 @@ public function indexAction()
 { 
 	$this->Query = new \Roka\Dbtables\WGTQuerys();
     $this->Query->setDI($this->di);
+	
 	$question = $this->Query->GetLatestQuestion();
 	$active = $this->Query->GetActiveUsers();
 	$tags = $this ->Query->GetPopTags();
-//dump($question);
+	
     $this->theme->setTitle("Homepage");
 	$content = $this->fileContent->get('me.md');
     $content = $this->textFilter->doFilter($content, 'shortcode, markdown');
