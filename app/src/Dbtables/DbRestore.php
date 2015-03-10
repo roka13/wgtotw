@@ -21,9 +21,7 @@ $this->PopulateUsers();
 $this->PopulateAnswer();
 $this->PopulateTags();
 $this->PopulateQuestions();
-//$sql +=$this->CreateQuestionTagsView();
-//echo $sql;
-//$this->db->execute($sql);
+
 }
 
 public function CreateUserTbl(){
@@ -179,93 +177,6 @@ EOD;
 $this->db->execute($html);	
 }
 
-/**
-* Lista vilka taggar som tillhör utvald fråga
-
-*/
-public function  CreateQuestion2TagsView(){
-	$html="	DROP VIEW IF EXISTS QuestionTagsView";
-$this->db->execute($html);	
-
-$html=<<<EOD
-CREATE VIEW QuestionTagsView AS 
-SELECT
-Q.*, 
-GROUP_CONCAT(T.TagName) AS Tags
-FROM Questions AS Q
-LEFT OUTER JOIN Tags2Question AS T2Q
-ON Q.Id = T2Q.questionId
-LEFT OUTER JOIN Tags AS T
-ON T2Q.tagId = T.Id
-GROUP BY Q.Id
-;
-EOD;
-$this->db->execute($html);	
-}
-
-/**
-* Lista alla Frågor med samtliga uppgifter om frågan samt frågeställarens idnr
-* och det svar som finns som Answerstxt
-*/
-public function  CreateQuestionAnswersView(){
-	$html="	DROP VIEW IF EXISTS QuestionAnswersView";
-$this->db->execute($html);	
-
-$html=<<<EOD
-CREATE VIEW QuestionAnswersView AS 
-SELECT
-Q.*,
-GROUP_CONCAT(A.AnswerTxt) AS Answerstxt
-FROM Questions AS Q
-LEFT OUTER JOIN Answers2question AS A2Q
-ON Q.Id = A2Q.questionId
-LEFT OUTER JOIN Answers AS A
-ON A2Q.answerId = A.Id
-GROUP BY Q.Id
-;
-EOD;
-$this->db->execute($html);	
-}
-
-public function  CreateQuestionCommentsView(){
-	$html="	DROP VIEW IF EXISTS QuestionCommentsView";
-$this->db->execute($html);	
-
-$html=<<<EOD
-CREATE VIEW QuestionCommentsView AS 
-SELECT
-Q.*,
-GROUP_CONCAT(C.commentTxt) AS Comments
-FROM Questions AS Q
-LEFT OUTER JOIN Comments2Question AS C2Q
-ON Q.Id = C2Q.questionId
-LEFT OUTER JOIN Comments AS C
-ON C2Q.commentId = C.Id
-GROUP BY Q.Id
-;
-EOD;
-$this->db->execute($html);	
-}
-
-public function  CreateAnswerCommentsView(){
-	$html="	DROP TVIEW IF EXISTS AnswerCommentsView";
-$this->db->execute($html);	
-
-$html=<<<EOD
-CREATE VIEW AnswerCommentsView AS
-SELECT
-A.*, C.*,
-GROUP_CONCAT(C.commentsTxt) AS Comments
-FROM Answers AS A
-LEFT OUTER JOIN Comments2Answer AS C2A
-ON A.Id = C2A.answerId
-LEFT OUTER JOIN Comments AS C
-ON C2A.commentId = C.Id
-GROUP BY A.Id
-;
-EOD;
-$this->db->execute($html);	
-}
 
 public function PopulateUsers(){
 //Lägg till användare
